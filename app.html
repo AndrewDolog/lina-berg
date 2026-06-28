@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinaBerg — Content Manager</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #222; }
+  .header { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 16px 32px; display: flex; align-items: center; gap: 12px; }
+  .header h1 { font-size: 1.2em; font-weight: 600; }
+  .badge { background: #fe2c55; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+  .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+  .card { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .card h2 { font-size: 1em; font-weight: 600; margin-bottom: 16px; color: #444; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.8em; }
+  .connect-btn { display: inline-flex; align-items: center; gap: 10px; background: #010101; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 0.95em; font-weight: 600; cursor: pointer; border: none; }
+  .connect-btn:hover { background: #333; }
+  .tiktok-icon { width: 20px; height: 20px; }
+  .status { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #f0fdf4; border-radius: 8px; color: #16a34a; font-size: 0.9em; margin-top: 12px; }
+  .dot { width: 8px; height: 8px; background: #16a34a; border-radius: 50%; }
+  .upload-area { border: 2px dashed #d1d5db; border-radius: 8px; padding: 40px; text-align: center; color: #9ca3af; cursor: pointer; margin-bottom: 16px; }
+  .upload-area:hover { border-color: #fe2c55; color: #fe2c55; }
+  .upload-icon { font-size: 2em; margin-bottom: 8px; }
+  label { display: block; font-size: 0.85em; font-weight: 500; margin-bottom: 6px; color: #555; }
+  input[type=text], textarea, select { width: 100%; padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.9em; outline: none; }
+  input:focus, textarea:focus { border-color: #fe2c55; }
+  textarea { height: 80px; resize: vertical; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .field { margin-bottom: 16px; }
+  .post-btn { background: #fe2c55; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-size: 0.95em; font-weight: 600; cursor: pointer; width: 100%; }
+  .post-btn:hover { background: #e0193e; }
+  .history { list-style: none; }
+  .history li { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-size: 0.9em; }
+  .history li:last-child { border: none; }
+  .pill { background: #f0fdf4; color: #16a34a; font-size: 0.75em; padding: 2px 10px; border-radius: 20px; font-weight: 600; }
+  .pill.scheduled { background: #eff6ff; color: #2563eb; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>LinaBerg</h1>
+  <span class="badge">TikTok Connected</span>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>TikTok Account</h2>
+    <button class="connect-btn">
+      <svg class="tiktok-icon" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.16 8.16 0 004.77 1.52V7.02a4.85 4.85 0 01-1-.33z"/></svg>
+      Connect with TikTok
+    </button>
+    <div class="status">
+      <div class="dot"></div>
+      Connected as @LinaBergOfficial
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Post New Video</h2>
+    <div class="upload-area">
+      <div class="upload-icon">📹</div>
+      <div>Drop video here or <strong>browse</strong></div>
+      <div style="font-size:0.8em;margin-top:4px;">MP4, MOV — max 50MB</div>
+    </div>
+    <div class="field">
+      <label>Caption</label>
+      <textarea placeholder="Write your caption..."></textarea>
+    </div>
+    <div class="row">
+      <div>
+        <label>Schedule</label>
+        <input type="text" value="Today, 21:45" />
+      </div>
+      <div>
+        <label>Visibility</label>
+        <select><option>Public</option><option>Friends</option><option>Private</option></select>
+      </div>
+    </div>
+    <button class="post-btn">Post to TikTok</button>
+  </div>
+
+  <div class="card">
+    <h2>Recent Posts</h2>
+    <ul class="history">
+      <li><span>Morning vlog — Stockholm cafe ☕</span> <span class="pill">Posted</span></li>
+      <li><span>OOTD — City walk 🌸</span> <span class="pill">Posted</span></li>
+      <li><span>Evening routine 🌙</span> <span class="pill scheduled">Scheduled 21:45</span></li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
